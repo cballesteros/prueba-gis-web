@@ -1,0 +1,30 @@
+<h2>Vehículos</h2>
+
+<nav>
+  <a class="button" routerLinkActive="activebutton" routerLink="/">Vehículos</a> |
+  <a class="button" routerLinkActive="activebutton" routerLink="/vehicles/save">Nuevo</a> <span *ngIf="selectedVehicle"> | </span>
+  <a class="button" routerLinkActive="activebutton" *ngIf="selectedVehicle" [routerLink]="['/vehicles/update', selectedVehicle.id]">Editar</a> <span *ngIf="selectedVehicle"> | </span>
+  <a class="button" routerLinkActive="activebutton" *ngIf="selectedVehicle" [routerLink]="['/vehicles/delete', selectedVehicle.id]">Eliminar</a>
+</nav>
+
+<div *ngIf="!selectedVehicle">
+  <span>Seleccione un vehículo de la lista para ver los detalles y ejecutar acciones</span>
+</div>
+
+<div *ngIf="selectedVehicle">
+
+    <h2>{{selectedVehicle.license | uppercase}}</h2>
+    <div><span>Propietario: </span>{{selectedVehicle.owner}}</div>
+    <div><span>Marca: </span>{{selectedVehicle.brand}}</div>
+    <div><span>Latitud: </span>{{selectedVehicle.latitude}}</div>
+    <div><span>Longitud: </span>{{selectedVehicle.longitude}}</div>
+  
+</div>
+
+<ul class="heroes">
+  <li *ngFor="let vehicle of vehicles"
+    [class.selected]="vehicle === selectedVehicle"
+    (click)="onSelect(vehicle)">
+    <span class="badge">{{vehicle.id}}</span> {{vehicle.license}}
+  </li>
+</ul>
