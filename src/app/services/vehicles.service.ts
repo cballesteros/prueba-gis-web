@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class VehiclesService {
 
-  private vehiclesUrl:string = "http://localhost:3000/vehicles"
+  //private vehiclesUrl:string = "http://localhost:3000/vehicles";
+  private vehiclesUrl:string = "https://shielded-coast-71212.herokuapp.com";
 
   constructor(
     private http: HttpClient,
