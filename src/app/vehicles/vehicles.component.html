@@ -21,6 +21,10 @@
   
 </div>
 
+<div *ngIf="vehicles.length == 0">
+  <span>Cargando información...</span>
+</div>
+
 <ul class="heroes">
   <li *ngFor="let vehicle of vehicles"
     [class.selected]="vehicle === selectedVehicle"
